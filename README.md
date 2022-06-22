@@ -1,1 +1,1 @@
-# cmake_cpp_starter
+# cpp_starter
