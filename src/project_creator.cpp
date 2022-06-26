@@ -6,7 +6,7 @@
 
 namespace cs = cpp_starter;
 
-std::string cs::ProjectCreator::create_contents() {
+std::string cs::ProjectCreator::write_contents() {
   std::string contents = "cmake_minimum_required(VERSION 3.20)\n\n";
   contents += "project(" + o->project + " VERSION 0.1 LANGUAGES CXX)\n\n";
 
@@ -26,12 +26,10 @@ std::string cs::ProjectCreator::create_contents() {
   return contents;
 }
 
-const std::string& cs::ProjectCreator::write_contents() {
-  return contents;
-}
-
 bool cs::ProjectCreator::write_project_to_disc() {
   namespace fs = std::filesystem;
+
+  std::string contents = this->write_contents();
 
   if (o->debug) {
     std::cout << contents << std::endl;
