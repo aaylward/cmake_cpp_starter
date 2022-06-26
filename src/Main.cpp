@@ -1,15 +1,10 @@
 #include "args.h"
 #include "project_creator.h"
-#include <cstdint>
-#include <fstream>
-#include <filesystem>
 #include <iostream>
-#include <string>
-
-
-namespace cs = cpp_starter;
 
 int main(int ac, char** av) {
+  namespace cs = cpp_starter;
+
   auto o = cs::get_options(ac, av);
   if (o->project.empty()) {
     std::cout << "--project is required" << std::endl;
