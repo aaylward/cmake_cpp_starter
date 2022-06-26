@@ -1,14 +1,12 @@
-#include "args.h"
-#include <cstdint>
-#include <fstream>
-#include <filesystem>
 #include <iostream>
+#include <filesystem>
+#include <fstream>
+#include "project_creator.h"
 #include <string>
-
 
 namespace cs = cpp_starter;
 
-std::string make_contents(const cs::options* o) {
+std::string cs::ProjectCreator::create_contents() {
   std::string contents = "cmake_minimum_required(VERSION 3.20)\n\n";
   contents += "project(" + o->project + " VERSION 0.1 LANGUAGES CXX)\n\n";
 
@@ -28,7 +26,11 @@ std::string make_contents(const cs::options* o) {
   return contents;
 }
 
-int write_contents(std::string &contents, std::unique_ptr<cs::options> o) {
+const std::string& cs::ProjectCreator::write_contents() {
+  return contents;
+}
+
+bool cs::ProjectCreator::write_project_to_disc() {
   namespace fs = std::filesystem;
 
   if (o->debug) {
@@ -53,14 +55,4 @@ int write_contents(std::string &contents, std::unique_ptr<cs::options> o) {
   f << "#include <iostream>\n\nint main() {\n  std::cout << \"sup.\" << std::endl;\n}" << std::endl;
 
   return 0;
-}
-
-int main(int ac, char** av) {
-  auto o = cs::get_options(ac, av);
-  if (o->project.empty()) {
-    std::cout << "--project is required" << std::endl;
-    return 1;
-  }
-  std::string contents = make_contents(o.get());
-  return write_contents(contents, std::move(o));
 }
