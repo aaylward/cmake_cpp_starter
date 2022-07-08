@@ -13,7 +13,6 @@ std::unique_ptr<cs::options> cs::get_options(int ac, char** av) {
   desc.add_options()
     ("help", "produce help message")
     ("debug", po::value<bool>()->default_value(false), "debug?")
-    ("project", po::value<std::string>(), "project name")
     ("standard", po::value<uint8_t>()->default_value(17), "cpp standard")
     ("parser", po::value<bool>()->default_value(false), "include arg parser?")
     ("boost", po::value<std::string>()->default_value("1.78"), "boost version for arg parser");
@@ -29,13 +28,17 @@ std::unique_ptr<cs::options> cs::get_options(int ac, char** av) {
     return o;
   }
 
+  if (ac < 2 || strncmp("-", av[1], 1) == 0) {
+    std::cout << desc << std::endl;
+    return o;
+  }
+
+  o->project = std::string(av[1]);
+
   o->standard = vm["standard"].as<uint8_t>();
   o->debug = vm["debug"].as<bool>();
   o->parser = vm["parser"].as<bool>();
   o->boost_version = vm["boost"].as<std::string>();
 
-  if (vm.count("project")) {
-    o->project = vm["project"].as<std::string>();
-  }
   return o;
 }

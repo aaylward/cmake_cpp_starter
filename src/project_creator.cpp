@@ -14,8 +14,7 @@ std::string cs::ProjectCreator::write_contents() {
   contents += "set(CMAKE_CXX_STANDARD_REQUIRED True)\n\n";
 
   contents += "file(GLOB SOURCES \"src/*.cpp\")\n\n";
-  contents += "add_compile_options(-Wall -Wextra -Werror -fsanitize=address)\n";
-  contents += "add_link_options(-fsanitize=address)\n";
+  contents += "add_compile_options(-Wall -Wextra -Werror)\n";
   contents += "add_executable(" + o->project + " ${SOURCES})\n";
 
   if (o->parser) {
