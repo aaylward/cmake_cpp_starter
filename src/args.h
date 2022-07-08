@@ -1,10 +1,10 @@
-#if !defined(CPP_STARTER_ARGS_H)
-#define CPP_STARTER_ARGS_H
+#if !defined(QWK_ARGS_H)
+#define QWK_ARGS_H
 
 #include <cstdint>
 #include <string>
 
-namespace cpp_starter {
+namespace qwk {
   struct options {
     uint8_t standard;
     bool parser;
@@ -17,4 +17,4 @@ namespace cpp_starter {
 }
 
 
-#endif // CPP_STARTER_ARGS_H
+#endif // QWK_ARGS_H

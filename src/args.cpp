@@ -4,9 +4,7 @@
 #include <iostream>
 #include <string>
 
-namespace cs = cpp_starter;
-
-std::unique_ptr<cs::options> cs::get_options(int ac, char** av) {
+std::unique_ptr<qwk::options> qwk::get_options(int ac, char** av) {
   namespace po = boost::program_options;
 
   po::options_description desc("Allowed options");
@@ -21,7 +19,7 @@ std::unique_ptr<cs::options> cs::get_options(int ac, char** av) {
   po::store(po::parse_command_line(ac, av, desc), vm);
   po::notify(vm);
 
-  auto o = std::make_unique<cs::options>();
+  auto o = std::make_unique<qwk::options>();
 
   if (vm.count("help")) {
     std::cout << desc << std::endl;

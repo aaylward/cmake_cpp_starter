@@ -1,6 +1,4 @@
 #/usr/bin/env bash
 
-mkdir build
-cd build
-cmake ..
-make
+cmake -Bbuild -GNinja
+cmake --build build

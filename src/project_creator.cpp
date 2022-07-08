@@ -4,9 +4,7 @@
 #include "project_creator.h"
 #include <string>
 
-namespace cs = cpp_starter;
-
-std::string cs::ProjectCreator::write_contents() {
+std::string qwk::ProjectCreator::write_contents() {
   std::string contents = "cmake_minimum_required(VERSION 3.20)\n\n";
   contents += "project(" + o->project + " VERSION 0.1 LANGUAGES CXX)\n\n";
 
@@ -25,7 +23,7 @@ std::string cs::ProjectCreator::write_contents() {
   return contents;
 }
 
-bool cs::ProjectCreator::write_project_to_disc() {
+bool qwk::ProjectCreator::write_project_to_disc() {
   namespace fs = std::filesystem;
 
   std::string contents = this->write_contents();

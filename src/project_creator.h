@@ -1,10 +1,10 @@
-#if !defined(CPP_STARTER_PROJECT_CREATOR_H)
-#define CPP_STARTER_PROJECT_CREATOR_H
+#if !defined(QWK_PROJECT_CREATOR_H)
+#define QWK_PROJECT_CREATOR_H
 
 #include "args.h"
 #include <string>
 
-namespace cpp_starter {
+namespace qwk {
   class ProjectCreator {
     private:
       std::unique_ptr<options> o;
@@ -17,4 +17,4 @@ namespace cpp_starter {
 }
 
 
-#endif // CPP_STARTER_PROJECT_CREATOR_H
+#endif // QWK_PROJECT_CREATOR_H

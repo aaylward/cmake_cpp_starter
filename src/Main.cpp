@@ -3,13 +3,11 @@
 #include <iostream>
 
 int main(int ac, char** av) {
-  namespace cs = cpp_starter;
-
-  auto o = cs::get_options(ac, av);
+  auto o = qwk::get_options(ac, av);
   if (o->project.empty()) {
     std::cout << "--project is required" << std::endl;
     return 1;
   }
-  cs::ProjectCreator pc(std::move(o));
+  qwk::ProjectCreator pc(std::move(o));
   return pc.write_project_to_disc();
 }
