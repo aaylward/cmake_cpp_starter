@@ -1,6 +1,8 @@
 # qwk
 A simple project generator for c++ projects using CMake
 
+![qwk branch main](https://github.com/aaylward/qwk/actions/workflows/cmake.yml/badge.svg)
+
 ### Usage
 ```bash
 qwk new_thing
