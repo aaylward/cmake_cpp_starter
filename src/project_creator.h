@@ -2,6 +2,7 @@
 #define QWK_PROJECT_CREATOR_H
 
 #include "args.h"
+#include <memory>
 #include <string>
 
 namespace qwk {

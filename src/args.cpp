@@ -2,6 +2,7 @@
 #include <boost/program_options.hpp>
 #include <cstdint>
 #include <iostream>
+#include <memory>
 #include <string>
 
 std::unique_ptr<qwk::options> qwk::get_options(int ac, char** av) {
